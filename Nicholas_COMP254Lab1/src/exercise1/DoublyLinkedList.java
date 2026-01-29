@@ -254,7 +254,7 @@ public class DoublyLinkedList<E> {
     M.addLast("D");
 
     // Prints lists before concatenation.
-    System.out.println("Before:");
+    System.out.println("\n\nBefore:");
     System.out.println("L: " + L);
     System.out.println("M: " + M);
 

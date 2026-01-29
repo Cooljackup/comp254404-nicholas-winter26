@@ -239,7 +239,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 
     // Code added to main to test swapping.
     // Prints list before swapping.
-    System.out.println("Before:");
+    System.out.println("\n\nBefore:");
     System.out.println(list);
 
     // Swaps nodes A & C, then prints list after swapping.
