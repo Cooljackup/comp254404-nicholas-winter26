@@ -1,3 +1,6 @@
+// COMP254-404 - Lab 1 - Nicholas Bonneville
+// Lab 1 - Exercise 3
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -199,5 +202,31 @@ public class CircularlyLinkedList<E> {
 	  System.out.println(circularList);
 
 	  //
+
+    // Code added to main to test cloning.
+    // Prints list before cloning.
+    System.out.println("\n\nBefore:");
+    System.out.println(circularList);
+
+    // Clones the list, then removes the first entry in the original list and prints both to show the lists are separate.
+    CircularlyLinkedList<String> clonedList = circularList.clone();
+    circularList.removeFirst();
+    System.out.println("\nAfter:");
+    System.out.println(circularList);
+    System.out.println(clonedList);
+  }
+
+  // Cloning method for cloning a list for exercise 3.
+  public CircularlyLinkedList<E> clone() {
+    // Instance variables.
+    CircularlyLinkedList<E> clonedList = new CircularlyLinkedList<>();
+    Node<E> node = tail.getNext();
+
+    // Goes through all the nodes in the original list, then adds a copy of each node into the cloned list until there is no more to clone.
+    for (int i = 0; i < size; i++) {
+      clonedList.addLast(node.getElement());
+      node = node.getNext();
+    }
+    return clonedList;
   }
 }
