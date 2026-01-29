@@ -1,3 +1,6 @@
+// COMP254-404 - Lab 1 - Nicholas Bonneville
+// Lab 1 - Exercise 2
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -232,6 +235,60 @@ public class SinglyLinkedList<E> implements Cloneable {
 	  list.addFirst("LAX");
 	  System.out.println(list);
 	  //
+
+
+    // Code added to main to test swapping.
+    // Prints list before swapping.
+    System.out.println("Before:");
+    System.out.println(list);
+
+    // Swaps nodes A & C, then prints list after swapping.
+    Node<String> nodeA = list.head;
+    Node<String> nodeC = list.head.next.next;
+    list.swapNodes(nodeA, nodeC);
+    System.out.println("\nAfter:");
+    System.out.println(list);
   }
-  
+
+  // Swapping method for swapping 2 nodes for exercise 2.
+  public void swapNodes(Node<E> node1, Node<E> node2) {
+    // Instance variables.
+    Node<E> previous1 = null;
+    Node<E> previous2 = null;
+    Node<E> current = head;
+
+    // Checks to see if first and second node if already are the same, if not, it proceeds to check and update the previous nodes.
+    if (node1 == node2) {
+      return;
+    } else {
+      // Checks and gets previous nodes and sets them.
+      while (current != null && (previous1 == null || previous2 == null)) {
+        if (current.next == node1) {
+          previous1 = current;
+        }
+        if (current.next == node2) {
+          previous2 = current;
+        }
+        current = current.next;
+      }
+
+      // Updates the previous nodes to point to the correct opposite node.
+      if (previous1 != null) {
+        previous1.next = node2;
+      } else {
+        head = node2;
+      }
+
+      if (previous2 != null) {
+        previous2.next = node1;
+      } else {
+        head = node1;
+      }
+
+      // Now swaps the pointers to the new nodes.
+      Node<E> nextNode = node1.next;
+      node1.next = node2.next;
+      node2.next = nextNode;
+    }
+  }
 }
