@@ -240,6 +240,29 @@ public class DoublyLinkedList<E> {
 	  System.out.println(list);
 	  System.out.println(list.first());
 	  //
+
+
+    // Code added to main to test concatenation.
+    // Instance variables.
+    DoublyLinkedList<String> L = new DoublyLinkedList<>();
+    DoublyLinkedList<String> M = new DoublyLinkedList<>();
+
+    // Adds to both lists.
+    L.addLast("A");
+    L.addLast("B");
+    M.addLast("C");
+    M.addLast("D");
+
+    // Prints lists before concatenation.
+    System.out.println("Before:");
+    System.out.println("L: " + L);
+    System.out.println("M: " + M);
+
+    // Prints lists after concatenation.
+    L.concatenate(M);
+    System.out.println("\nAfter:");
+    System.out.println("L: " + L);
+    System.out.println("M: " + M);
   }
 
   // Concatenating method for exercise 1.
