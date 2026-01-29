@@ -1,3 +1,6 @@
+// COMP254-404 - Lab 1 - Nicholas Bonneville
+// Lab 1 - Exercise 1
+
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -237,5 +240,24 @@ public class DoublyLinkedList<E> {
 	  System.out.println(list);
 	  System.out.println(list.first());
 	  //
+  }
+
+  // Concatenating method for exercise 1.
+  public void concatenate(DoublyLinkedList<E> M) {
+
+    // Checks to see if M is empty. If not, it connects the last node of the list to the first node of M.
+    if (M.isEmpty()) {
+      return;
+    } else {
+      this.trailer.getPrev().setNext(M.header.getNext());
+      M.header.getNext().setPrev(this.trailer.getPrev());
+      this.trailer = M.trailer;
+      this.size += M.size;
+
+      // After updating trailer, it clears M.
+      M.header.setNext(M.trailer);
+      M.trailer.setPrev(M.header);
+      M.size = 0;
+    }
   }
 } //----------- end of DoublyLinkedList class -----------
