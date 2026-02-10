@@ -82,4 +82,37 @@ class Exercises {
     return count;
   }
 
+  // Main method created for testing purposes.
+  public static void main(String[] args) {
+
+    //Instance variables.
+    int[] array = { 1, 2, 3, 4 };
+    int[] arrayCheck = { 10, 20, 30, 40 };
+
+    // a. - example1.
+    // O(n). - Method contains a loop that iterates through the entire array.
+    // Output will be 10 ( 1 + 2 + 3 + 4).
+    System.out.println("example1 output: " + example1(array));
+
+    // b. - example2.
+    // O(n). - Method contains a loop that iterates every other element in the array.
+    // Output will be 4 (1 + 3).
+    System.out.println("example2 output: " + example2(array));
+
+    // c. - example3.
+    // O(n^2). - Method contains a loop that is nested where the loop will run with j+1 for each j.
+    // Output will be 30 (1*1 + 2*2 + 3*3 + 4*4 = 30).
+    System.out.println("example3 output: " + example3(array));
+
+    // d. - example4.
+    // O(n). - Method contains a single loop and calculates a sum that doesn't require running it again unlike example 3.
+    // Output will be 20 (0 + 1 = *1, 1 + 2 = *3, 3 + 3 = *6, 6 + 4 = *10, THEN 0 + *1 = 1, 1 + *3 = 4, 4 + *6 = 10, 10 + *10 = 20).
+    System.out.println("example4 output: " + example4(array));
+
+    // e. - example5.
+    // O(n^3) - Similar to example3, but repeats the sum calculation for each value in arrayCheck and checks how many values match.
+    // Output will be 1 (1 + 3 + 6 + 10 = 20, THEN 20 != 10, 20 = 20, 20 != 30, 20 != 40, = 1 match).
+    System.out.println("example5 output: " + example5(array, arrayCheck));
+  }
+
 }
