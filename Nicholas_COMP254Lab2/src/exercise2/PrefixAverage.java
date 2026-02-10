@@ -59,4 +59,32 @@ class PrefixAverage {
     return a;
   }
 
+  // Main method created for testing purposes.
+  public static void main(String[] args) {
+
+    // Instance variables.
+    int[] array = { 10000, 20000, 30000, 40000 };
+    long startTime = System.currentTimeMillis();
+    long endTime = System.currentTimeMillis();
+
+    // Loop that goes through each element and then populates with random values.
+    for (int n : array) {
+      double[] arrayData = new double[n];
+      for (int i = 0; i < n; i++)
+        arrayData[i] = Math.random();
+
+      // Records the start time before executing, then executes the algorithm, then records the time after executing, then outputs the execution time.
+      startTime = System.currentTimeMillis();
+      prefixAverage1(arrayData);
+      endTime = System.currentTimeMillis();
+      System.out.println("prefixAverage1 n = " + n + ". Time = " + (endTime - startTime) + "ms.");
+
+      // Records the start time before executing, then executes the algorithm, then records the time after executing, then outputs the execution time.
+      startTime = System.currentTimeMillis();
+      prefixAverage2(arrayData);
+      endTime = System.currentTimeMillis();
+      System.out.println("prefixAverage2 n = " + n + ". Time = " + (endTime - startTime) + "ms.\n");
+    }
+  }
+
 }
