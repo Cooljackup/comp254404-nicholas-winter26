@@ -64,8 +64,8 @@ class PrefixAverage {
 
     // Instance variables.
     int[] array = { 10000, 20000, 30000, 40000 };
-    long startTime = System.currentTimeMillis();
-    long endTime = System.currentTimeMillis();
+    long startTime;
+    long endTime;
 
     // Loop that goes through each element and then populates with random values.
     for (int n : array) {
