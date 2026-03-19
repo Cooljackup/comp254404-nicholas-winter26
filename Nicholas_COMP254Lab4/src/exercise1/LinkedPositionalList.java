@@ -423,4 +423,52 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
     sb.append(")");
     return sb.toString();
   }
+
+
+  /// Added code.
+  public int indexOf(Position<E> p) {
+
+    // Instance variables.
+    int currentIndex = 0;
+    Position<E> currentPosition = first();
+
+    // Checks the entire list until the end. Checks to see if the current position matches to p. If it matches, it returns the current index.
+    while (currentPosition != null) {
+      if (currentPosition == p) {
+        return currentIndex;
+      }
+
+      // Moves to the next position and increments the current index.
+      currentPosition = after(currentPosition);
+      currentIndex++;
+    }
+
+    // If position is not found, it returns -1.
+    return -1;
+  }
+
+  public static void main(String[] args) {
+
+    // Instance variables.
+    LinkedPositionalList<String> list = new LinkedPositionalList<>();
+    Position<String> pFirst = list.addLast("A");
+    Position<String> pSecond = list.addLast("B");
+    Position<String> pThird = list.addLast("C");
+
+    // Prints the current list and index of each element
+    System.out.println("Current list: " + list);
+    System.out.println("pFirst (" + pFirst.getElement() + ") index: " + list.indexOf(pFirst));
+    System.out.println("pSecond (" + pSecond.getElement() + ") index: " + list.indexOf(pSecond));
+    System.out.println("pThird (" + pThird.getElement() + ") index: " + list.indexOf(pThird));
+
+    // Creates pFourth and inserts it after pThird.
+    Position<String> pFourth = list.addAfter(pThird, "D");
+
+    // Prints the new and updated list and index of each element.
+    System.out.println("\n\nCurrent list after insert: " + list);
+    System.out.println("pFirst (" + pFirst.getElement() + ") index: " + list.indexOf(pFirst));
+    System.out.println("pSecond (" + pSecond.getElement() + ") index: " + list.indexOf(pSecond));
+    System.out.println("pThird (" + pThird.getElement() + ") index: " + list.indexOf(pThird));
+    System.out.println("pFourth (" + pFourth.getElement() + ") index: " + list.indexOf(pFourth));
+  }
 }
