@@ -93,4 +93,37 @@ public class LinkedStack<E> implements Stack<E> {
   public String toString() {
     return list.toString();
   }
+
+
+  /// Added code.
+  public static <E> void transfer(Stack<E> S, Stack<E> T) {
+
+    // Goes through stack S until it reaches the end of the stack. Removes the top element in stack S while adding it to stack T.
+    while (!S.isEmpty()) {
+      T.push(S.pop());
+    }
+  }
+
+  public static void main(String[] args) {
+
+    // Instance variables.
+    Stack<String> S = new LinkedStack<>();
+    Stack<String> T = new LinkedStack<>();
+
+    // Pushes 3 elements into stack S.
+    S.push("A");
+    S.push("B");
+    S.push("C");
+
+    // Prints out the current stack S and T.
+    System.out.println("Current stack S: " + S);
+    System.out.println("Current stack T: " + T);
+
+    // Calls transfer to transfer elements from stack S to stack T.
+    transfer(S, T);
+
+    //
+    System.out.println("\nUpdated stack S: " + S);
+    System.out.println("Updated stack T: " + T);
+  }
 }
