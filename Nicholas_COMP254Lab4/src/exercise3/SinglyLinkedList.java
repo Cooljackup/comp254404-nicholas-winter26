@@ -219,4 +219,25 @@ public class SinglyLinkedList<E> implements Cloneable {
     sb.append(")");
     return sb.toString();
   }
+
+
+  /// Added code.
+  public void linkList(SinglyLinkedList<E> list) {
+
+    // If the new list is empty, it copies over the old list. Otherwise just updates current tail and updates the size for both lists.
+    if (this.isEmpty()) {
+      this.head = list.head;
+      this.tail = list.tail;
+      this.size = list.size;
+    } else {
+      this.tail.setNext(list.head);
+      this.tail = list.tail;
+      this.size += list.size;
+    }
+
+    // Emptys the current list.
+    list.head = null;
+    list.tail = null;
+    list.size = 0;
+  }
 }
