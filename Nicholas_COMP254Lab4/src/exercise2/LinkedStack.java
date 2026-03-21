@@ -122,7 +122,7 @@ public class LinkedStack<E> implements Stack<E> {
     // Calls transfer to transfer elements from stack S to stack T.
     transfer(S, T);
 
-    //
+    // Prints out the updated stack S and T.
     System.out.println("\nUpdated stack S: " + S);
     System.out.println("Updated stack T: " + T);
   }
